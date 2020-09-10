@@ -1,4 +1,5 @@
-your_age = int(input("How old are you?:" ))
+your_age = input("How old are you?:"  )
+
  
 def your_occupation(your_age):
     if 0 < your_age <= 5:
@@ -10,8 +11,10 @@ def your_occupation(your_age):
     elif 100 >= your_age > 23:
         return "go to work"
     else:
-        return " this data is not correct, try again"  
+        return "this data is not correct, try again"  
 
-result = your_occupation(your_age)
-print(result)
-    
+if type(your_age) is int:
+    result = your_occupation(your_age)
+    print(result)
+elif type(your_age) is not int: 
+    print("this data is not correct, try again")   
