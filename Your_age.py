@@ -1,6 +1,4 @@
-your_age = input("How old are you?:"  )
 
- 
 def your_occupation(your_age):
     if 0 < your_age <= 5:
         return "go to kindergarten"
@@ -13,8 +11,11 @@ def your_occupation(your_age):
     else:
         return "this data is not correct, try again"  
 
-if type(your_age) is int:
-    result = your_occupation(your_age)
-    print(result)
-elif type(your_age) is not int: 
-    print("this data is not correct, try again")   
+
+if __name__=='__main__':
+    your_age = int(input("How old are you?:"  ))
+    if isinstance(your_age,int):
+        result = your_occupation(your_age)
+        print(result)
+    else: 
+        print("this data is not correct, try again")   
