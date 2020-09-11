@@ -1,5 +1,3 @@
-a = "000"
-b = "learn"
 
 def string_comparison(a,b):
     if isinstance(a,str) and isinstance(b,str):
@@ -14,5 +12,7 @@ def string_comparison(a,b):
     else:
         print("0")
         
-if __name__=='__main__':        
+if __name__=='__main__':  
+    a = "000"
+    b = "learn"      
     string_comparison(a,b)
