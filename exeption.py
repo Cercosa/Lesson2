@@ -22,6 +22,7 @@ You can ask me only:
 -Are you happy today?''')
         except KeyboardInterrupt:
             print("Bye!")    
-            
+            break
+        
 if __name__=='__main__':     
     ask_me()
