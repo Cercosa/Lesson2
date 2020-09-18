@@ -1,4 +1,5 @@
 import ephem
+from datetime import datetime
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -17,12 +18,22 @@ def talk_to_me(update, context):
     update.message.reply_text(text)
 
 def constellation(update, context):
-    print("planet")
+    
     user_text = update.message.text.split(' ') 
     print(user_text)
-    if 
-    answer = constellation(user_text)
-    update.message.reply_text(answer)
+    planet = user_text[1]
+    if planet == 'Mercury':
+        planet = ephem.Mercury(datetime.now())
+        constellation = ephem.constellation(planet)
+
+    elif planet == "Mars":
+        planet = ephem.Mars(datetime.now())
+        constellation = ephem.constellation(planet)
+
+    else:
+        update.message.reply_text("Wrong planet name")
+  
+    update.message.reply_text(constellation)
     
 
 def main():
@@ -30,6 +41,7 @@ def main():
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start",greet_user))
+    dp.add_handler(CommandHandler("planet", constellation))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
 
     logging.info("Bot is started")
